@@ -72,19 +72,28 @@ const categories = [ALL_CATEGORY, ...Array.from(new Set(projects.map((p) => p.ca
 
 export default function ProjectPage() {
   const [activeCategory, setActiveCategory] = useState(ALL_CATEGORY);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 3;
   
   const filteredProjects = activeCategory === ALL_CATEGORY 
     ? projects 
     : projects.filter(p => p.category === activeCategory);
+
+  const totalPages = Math.ceil(filteredProjects.length / itemsPerPage);
+  const paginatedProjects = filteredProjects.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
 
   const [activeProject, setActiveProject] = useState(projects[0]);
 
   return (
     <div className="flex flex-col lg:flex-row min-h-screen bg-[#f5f5f5] pt-32 lg:pt-0 font-sans text-[#111111]">
       {/* LEFT SIDE - Project List */}
-      <div className="w-full lg:w-[40%] xl:w-[35%] lg:h-screen lg:sticky top-0 flex flex-col justify-center px-8 md:px-12 lg:pl-20 lg:pr-12 py-16 lg:py-0 bg-[#f5f5f5] z-20">
-        <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif leading-[1.05] tracking-tight mb-8">
-          The Rifki<br />projects.
+      <div className="w-full lg:w-[40%] xl:w-[35%] lg:h-screen lg:sticky top-0 flex flex-col justify-start px-8 md:px-12 lg:pl-20 lg:pr-12 pt-16 lg:pt-48 pb-16 lg:pb-12 bg-[#f5f5f5] z-20 overflow-y-auto" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+        <style dangerouslySetInnerHTML={{__html: `::-webkit-scrollbar { display: none; }`}} />
+        <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif leading-[1.05] tracking-tight mb-8 capitalize">
+          My<br />Project.
         </h1>
 
         {/* Filters */}
@@ -94,6 +103,7 @@ export default function ProjectPage() {
               key={cat}
               onClick={() => {
                 setActiveCategory(cat);
+                setCurrentPage(1);
                 const newProjects = cat === ALL_CATEGORY ? projects : projects.filter(p => p.category === cat);
                 if (newProjects.length > 0) setActiveProject(newProjects[0]);
               }}
@@ -109,7 +119,7 @@ export default function ProjectPage() {
         </div>
 
         <div className="flex flex-col w-full border-t border-black/10">
-          {filteredProjects.map((project) => {
+          {paginatedProjects.map((project) => {
             const isActive = activeProject.id === project.id;
 
             return (
@@ -140,6 +150,29 @@ export default function ProjectPage() {
             );
           })}
         </div>
+
+        {/* Pagination Controls */}
+        {totalPages > 1 && (
+          <div className="flex items-center justify-between mt-8 px-2">
+            <button
+              onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
+              disabled={currentPage === 1}
+              className="text-xs font-bold uppercase tracking-wider disabled:opacity-30 hover:opacity-70 transition-opacity"
+            >
+              Previous
+            </button>
+            <span className="text-xs font-medium text-black/50">
+              {currentPage} / {totalPages}
+            </span>
+            <button
+              onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
+              disabled={currentPage === totalPages}
+              className="text-xs font-bold uppercase tracking-wider disabled:opacity-30 hover:opacity-70 transition-opacity"
+            >
+              Next
+            </button>
+          </div>
+        )}
       </div>
 
       {/* RIGHT SIDE - Scrollable Visual Preview */}

@@ -64,17 +64,17 @@ export default function ContactPage() {
             <div className="h-px w-full max-w-xl bg-black/10" />
 
             {/* CTA Buttons */}
-            <div className="flex flex-col gap-10 sm:gap-20 w-full">
+            <div className="flex flex-row gap-4 sm:gap-10 w-full items-stretch justify-between sm:justify-start">
               {/* First Action */}
-              <a href="mailto:rifkinauvaldzaki08@gmail.com" className="flex flex-row items-center justify-between sm:justify-start gap-4 sm:gap-6 group cursor-pointer w-full sm:w-auto">
-                <p className="text-lg sm:text-2xl text-black/70 max-w-[180px] sm:max-w-[200px] font-sans leading-tight">
+              <a href="mailto:rifkinauvaldzaki08@gmail.com" className="flex flex-col items-start justify-between gap-3 sm:gap-6 group cursor-pointer flex-1 min-w-0">
+                <p className="text-sm sm:text-lg lg:text-2xl text-black/70 font-sans leading-snug w-full">
                   Let&apos;s talk about your technical challenges!
                 </p>
                 <AnimatedButton
-                  width="140px"
-                  height="48px"
+                  width="120px"
+                  height="44px"
                   text=""
-                  iconSize="40px"
+                  iconSize="36px"
                   defaultBg="#5ceb5c"
                   hoverBg="#171717"
                   iconDefaultBg="#1a1a1a"
@@ -85,16 +85,16 @@ export default function ContactPage() {
               </a>
 
               {/* Second Action */}
-              <a href="mailto:rifkinauvaldzaki08@gmail.com" className="flex flex-row items-center justify-between sm:justify-start gap-4 sm:gap-6 group cursor-pointer w-full sm:w-auto">
-                <p className="text-lg sm:text-2xl text-black/70 max-w-[140px] font-sans leading-tight">
+              <a href="mailto:rifkinauvaldzaki08@gmail.com" className="flex flex-col items-start justify-between gap-3 sm:gap-6 group cursor-pointer flex-1 min-w-0">
+                <p className="text-sm sm:text-lg lg:text-2xl text-black/70 font-sans leading-snug w-full">
                   Have an idea?<br />
                   Write to me.
                 </p>
                 <AnimatedButton
-                  width="140px"
-                  height="48px"
+                  width="120px"
+                  height="44px"
                   text=""
-                  iconSize="40px"
+                  iconSize="36px"
                   defaultBg="#5ceb5c"
                   hoverBg="#171717"
                   iconDefaultBg="#1a1a1a"
@@ -106,7 +106,7 @@ export default function ContactPage() {
             </div>
 
             {/* Social Contact Links */}
-            <div className="flex flex-wrap gap-4 mt-2">
+            <div className="flex flex-wrap gap-2 sm:gap-4 mt-2">
               {contactLinks.map((link) => (
                 <Link
                   key={link.label}
@@ -114,10 +114,10 @@ export default function ContactPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={link.label}
-                  className="group flex items-center gap-3 px-5 py-3 rounded-full border border-black/10 bg-white/60 backdrop-blur-sm hover:bg-primary hover:border-transparent transition-all duration-300"
+                  className="group flex items-center gap-2 sm:gap-3 px-3 py-2 sm:px-5 sm:py-3 rounded-full border border-black/10 bg-white/60 backdrop-blur-sm hover:bg-primary hover:border-transparent transition-all duration-300"
                 >
-                  <link.icon className="w-5 h-5 text-[#111111] group-hover:text-[#5ceb5c] transition-colors duration-300" />
-                  <span className="text-sm font-medium text-[#111111] group-hover:text-white transition-colors duration-300">
+                  <link.icon className="w-4 h-4 sm:w-5 sm:h-5 text-[#111111] group-hover:text-[#5ceb5c] transition-colors duration-300" />
+                  <span className="text-xs sm:text-sm font-medium text-[#111111] group-hover:text-white transition-colors duration-300">
                     {link.label}
                   </span>
                 </Link>

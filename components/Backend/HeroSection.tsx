@@ -23,10 +23,15 @@ export default function HeroSection({ id }: HeroSectionProps) {
         <p className="text-[#8ddd8d] text-sm md:text-base tracking-[0.2em] uppercase font-semibold">
           About Me
         </p>
-        <h1 className="text-5xl md:text-7xl lg:text-[6.5rem] font-serif font-normal text-white leading-[1.05] tracking-tight text-balance">
-          Hi, I'm Rifki. A Software Engineer and Api Specialist.
+        <h1 className="text-5xl md:text-6xl lg:text-[5rem] font-serif font-normal text-white leading-[1.05] tracking-tight text-balance mb-6">
+          Hi, I'm Rifki.
         </h1>
-        <div className="pt-8">
+        <p className="text-white/70 text-lg md:text-xl leading-relaxed max-w-4xl mx-auto text-center">
+          Software Engineering student at <span className="text-white font-medium">Telkom University</span> specializing in <span className="text-[#8ddd8d] font-semibold">Backend Development, DevOps, and AI.</span>
+          <br /><br />
+          Proud developer of <span className="text-white font-medium">SINDARA</span> for Indonesia's Ministry of Education. I focus on designing <span className="text-white font-medium">scalable RESTful APIs</span>, robust <span className="text-white font-medium">data security</span>, and efficient <span className="text-[#8ddd8d] font-semibold">DevOps lifecycles</span>.
+        </p>
+        <div>
           <TransitionLink href="/contact" className="cursor-pointer">
             <motion.button
               whileHover={{ scale: 1.02 }}

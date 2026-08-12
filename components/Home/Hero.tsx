@@ -31,7 +31,7 @@ export default function Hero(id: { id: string }) {
           className="mb-8"
         >
           <span className="text-[#8ddd8d] text-sm md:text-base font-medium tracking-wide">
-            Rifki Nauval • Software Engineer
+            Rifki Nauval • Software Engineer | Backend, DevOps & AI Enthusiast
           </span>
         </motion.div>
 
@@ -43,8 +43,8 @@ export default function Hero(id: { id: string }) {
             transition={{ duration: 0.65, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
             className="text-5xl md:text-6xl lg:text-[5.5rem] font-serif text-[#f5f5f5] leading-[1.05] tracking-tight"
           >
-            Engineering robust systems <br className="hidden md:block" />
-            that scale effortlessly.
+            Engineering reliable digital infrastructure <br className="hidden lg:block" />
+            from the ground up.
           </motion.h1>
         </div>
 
@@ -55,7 +55,7 @@ export default function Hero(id: { id: string }) {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="text-white/60 text-lg md:text-xl leading-relaxed mb-12 max-w-2xl"
         >
-          I design and build production-ready backend architectures, reliable APIs, and seamless integrations that reinforce your technical foundation.
+          I specialize in designing high-performance APIs, automating workflows with modern DevOps, and integrating AI to build scalable digital infrastructure.
         </motion.p>
 
         {/* CTA Button */}

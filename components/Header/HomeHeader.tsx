@@ -73,7 +73,7 @@ export default function HomeHeader() {
   }, [pathname]);
 
   return (
-    <header id="main-header" className={`w-full z-40 font-sans transition-all duration-300 ${headerBgClass} ${isLightMode ? 'absolute top-0 left-0' : 'sticky top-0'}`}>
+    <header id="main-header" className={`w-full z-40 font-sans transition-all duration-300 ${headerBgClass} ${isLightMode ? 'fixed top-0 left-0' : 'sticky top-0'}`}>
       <div className="w-full px-6 md:px-10 lg:px-14 xl:px-20 pt-6 md:pt-12">
         <nav className="flex items-center justify-between pb-4 md:pb-6 relative"> 
           {/* Logo (always left) */}
